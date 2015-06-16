@@ -1,7 +1,7 @@
 
-     HECDSS Complete Catalog of Record Pathnames in File D:\DRR2015\DCR_Studies\1_DCR2015_Base_FutureNoCC_20150204_3000-4
+     HECDSS Complete Catalog of Record Pathnames in File D:\_WSIDI_Offset_Sensitivity\GROUP6\1_DCR2015_Base_FutureNoCC_20
 
-     Catalog Created on Feb 5, 2015 at 10:57     File Created on Aug 9, 2009
+     Catalog Created on Feb 18, 2015 at 16:22    File Created on Aug 9, 2009
      Number of Records:    273                   DSS Version 6-VE,  File 6-KC
      Sort Order: ABCFED
 
