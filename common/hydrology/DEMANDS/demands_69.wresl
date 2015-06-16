@@ -59,6 +59,7 @@ goal split_d7b     {d7b = d7b_prj}  ! Joint Board Canal
 goal split_d7b_prj {d7b_prj = d7b_pwr + d7b_pag + d7b_prf }
 goal subcontinuity216   {d7b_prf - c216b = 0}
 
+
 !Split Demand arc d201
 define d201_pmi    {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
 define d201_prj    {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
@@ -172,5 +173,8 @@ goal set_gp65_np    {gp65_np > minpump_69_np*taf_cfs  }
 ! redistribute these exports based on DSA 70 diversion requirement
 goal set_d283    { d283 < dem_d283_exp}          ! Camp Far West Exports to DSA 70
 goal set_d223     { d223  < dem_d223_exp*taf_cfs}             ! Left Bank Exports to DSA 70
+
+!Deliver rice decomp water.
+goal set_D7C {D7C = dem_D7C_DCMP*taf_cfs}
 
 

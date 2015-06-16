@@ -104,7 +104,7 @@ goal continuity32 {C177C+D31_S32+D33_S32+D34_S32-C32-C32A-C32B-C32C-D32-F32-E32=
 goal continuity33 {C177D-C33-D33_S31-D33_S32-D33-F33-E33=S33*taf_cfs-S33(-1)*taf_cfs} !NODOS EWA
 goal continuity34 {C177E-C34-D34_S31-D34_S32-D34-F34-E34=S34*taf_cfs-S34(-1)*taf_cfs} !NODOS WQ
 !
-goal continuity135 {D117+D124+C217A+R135A+R135B-C135=0} !Moulton Weir Inflow to Sutter Bypass
+goal continuity135 {D117+D124+C217A+R135A+R135B+R135C_DCMP-C135=0} !Moulton Weir Inflow to Sutter Bypass
 goal continuity136 {C135+D125-C136A-C136B=0} !Colusa Wier /  Diversion for Sutter NWR
 goal continuity137 {C136A+D126+R137-C137=0} !Tisdale Weir / Sutter Refuge Returns / Butte Creek Spills
 goal continuity151 {C184B+D163+D165-C151=0} !DSA65 Imports
@@ -125,7 +125,7 @@ goal continuity6 {i6-D6-C6-F6-E6=S6*taf_cfs-S6(-1)*taf_cfs} !Lake Oroville
 goal continuity200 {C6+i200-C200A-C200B=0} !Kelly Ridge Inflow to Feather River
 goal continuity201 {C200B-D201-C201=0} !Butte County Diversion
 goal continuity202 {C201-D202-C202=0} !Themolito ID Diversion
-goal continuity7 {C202-D7A-D7B-D7B_WTS-C7-F7-E7=S7*taf_cfs-S7(-1)*taf_cfs} !Themolito Complex
+goal continuity7 {C202-D7A-D7B-D7B_WTS-D7C-C7-F7-E7=S7*taf_cfs-S7(-1)*taf_cfs} !Themolito Complex
 goal continuity203 {C200A+C7-C203=0} !Themolito Complex Release to Feather River
 goal continuity204 {C203+C230+I204_WTS-D204-D204_REOP-C204=0} !Yuba River Inflow to Feather River
 goal continuity205 {C204+C282-C205-GS65=0} !DSA69 Stream - Aquifer interaction

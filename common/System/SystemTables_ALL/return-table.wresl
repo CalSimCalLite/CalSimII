@@ -18,3 +18,4 @@ define R135A {std kind 'FLOW-RETURN' units 'CFS'} !Gray Lodge
 define R135B {std kind 'FLOW-RETURN' units 'CFS'} !Butte Sink Duck Clubs
 define R223 {std kind 'FLOW-RETURN' units 'CFS'} !DSA69 Returns
 define R169 {std kind 'FLOW-RETURN' units 'CFS'} !DSA70 Returns
+define R135C_DCMP {timeseries kind 'RETURN-FLOW' units 'TAF' convert 'CFS'}

@@ -25,7 +25,8 @@ define eff_65 {timeseries kind 'efficiency' units 'percent'}
 
 
 ! DSA return flow factors
-define rf_58 {VALUE 1 - (1+nrl_58)*eff_58 }
+define rf_58_agpomi {VALUE 1 - (1+nrl_58)*eff_58 }
+define rf_58_pimi {timeseries kind 'Return-Flow' units 'taf' convert 'cfs'}
 !define rf_10 {VALUE 1 - (1+nrl_10)*eff_10 }
 !define rf_12 {VALUE 1 - (1+nrl_12)*eff_12 }
 !define rf_15 {VALUE 1 - (1+nrl_15)*eff_15 }
@@ -62,8 +63,9 @@ define percentFRWP_omi {value 1. - percentFRWP_imi}
 !define r156_np   {STD KIND 'flow' UNITS 'CFS' }  ! DSA 65 non prject returns
 
 !  Split up return flows between prject and non prject
-goal set_r109_prj  {r109_prj = rf_58*C106_prj - rf_58*gr60AWprj }   ! DSA 58 prject returns
-goal set_r109_np   {r109_np = rf_58*C106_np - rf_58*gr60AWnp }     !DSA 58 non prject returns
+goal set_c106_prj_pimi {C106_prj_pimi = rf_58_pimi}
+goal set_r109_prj  {r109_prj = rf_58_agpomi*C106_prj_agpomi +rf_58_pimi - rf_58_agpomi*gr60AWprj }   ! DSA 58 prject returns
+goal set_r109_np   {r109_np = rf_58_agpomi*C106_np - rf_58_agpomi*gr60AWnp }     !DSA 58 non prject returns
 goal set_r109      {r109 = r109_prj + r109_np }                    ! DSA58 Total returns
 
 !(DJE)Remove C209_pmi from np returns

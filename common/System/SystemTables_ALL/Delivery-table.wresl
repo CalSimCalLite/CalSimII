@@ -114,6 +114,7 @@ define D202 {std kind 'FLOW-DELIVERY' units 'CFS'} !Themolito ID Diversion
 define D7A {std kind 'FLOW-DELIVERY' units 'CFS'} !Western Canal
 define D7B {std kind 'FLOW-DELIVERY' units 'CFS'} !Joint Canal
 define D7B_WTS {lower unbounded upper unbounded kind 'FLOW-DELIVERY' units 'CFS'} !Placeholder for Water Transfer related Supply
+define D7C {std kind 'FLOW-DELIVERY' units 'CFS'} !Western Canal and Joint WD rice straw decomp diversions
 define D204 {std kind 'FLOW-DELIVERY' units 'CFS'} !Yuba City
 define D204_REOP {std kind 'FLOW-DELIVERY' units 'CFS'} !Yuba Inflow Reduction for previous yr NOD purchase
 define D230 {std kind 'FLOW-DELIVERY' units 'CFS'} !Yuba County Water Agency

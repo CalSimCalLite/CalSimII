@@ -85,7 +85,7 @@ define NODOSswpDS {lower -1000000. upper 1000000. kind 'STORAGE-CHANGE' UNITS 'C
 goal NODOSswp_storage_change {NODOSswpDS = C31 + C31A + C5_S32SWP /*+ D31*/ - C177B} !NODOS storage change
 
 ! Total
-goal swp_storage_change {SWPDS = C5_SWP + C203_m + D6 + D201 + D202 + D7A + D7B + D7B_WTS - I6 + I6_WTS - I200 + NODOSswpDS}!Define SWP Storage Change
+goal swp_storage_change {SWPDS = C5_SWP + C203_m + D6 + D201 + D202 + D7A + D7B + D7B_WTS + D7C - I6 + I6_WTS - I200 + NODOSswpDS}!Define SWP Storage Change
 
 ! **************************** CVP STORAGE CHANGE DEFINITIONS ******************************
 
