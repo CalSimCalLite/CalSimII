@@ -165,42 +165,45 @@ define dem_D848_PAG  {select demand from swp_3pattern_demands given percent=swp_
 define dem_D28_PMI   {select demand from swp_3pattern_demands given percent=swp_demprofile use linear where contractor=38,month=month}
 define dem_D29_PMI   {select demand from swp_3pattern_demands given percent=swp_demprofile use linear where contractor=39,month=month}
 
-!define out_D25_PMI   {alias dem_D25_PMI    kind 'debug' units 'taf'}
-!define out_D27_PMI   {alias dem_D27_PMI    kind 'debug' units 'taf'}
-!define out_D28_PMI   {alias dem_D28_PMI    kind 'debug' units 'taf'}
-!define out_D29_PMI   {alias dem_D29_PMI    kind 'debug' units 'taf'}
-!define out_D802A_PAG {alias dem_D802A_PAG  kind 'debug' units 'taf'}
-!define out_D810_PMI  {alias dem_D810_PMI   kind 'debug' units 'taf'}
-!define out_D813_PMI  {alias dem_D813_PMI   kind 'debug' units 'taf'}
-!define out_D814_PMI  {alias dem_D814_PMI   kind 'debug' units 'taf'}
-!define out_D815_PMI  {alias dem_D815_PMI   kind 'debug' units 'taf'}
-!define out_D846_PAG  {alias dem_D846_PAG   kind 'debug' units 'taf'}
-!define out_D847_PAG  {alias dem_D847_PAG   kind 'debug' units 'taf'}
-!define out_D848_PAG  {alias dem_D848_PAG   kind 'debug' units 'taf'}
-!define out_D849_PAG  {alias dem_D849_PAG   kind 'debug' units 'taf'}
-!define out_D851_PAG  {alias dem_D851_PAG   kind 'debug' units 'taf'}
-!define out_D851_PMI  {alias dem_D851_PMI   kind 'debug' units 'taf'}
-!define out_D859_PAG  {alias dem_D859_PAG   kind 'debug' units 'taf'}
-!define out_D863_PAG  {alias dem_D863_PAG   kind 'debug' units 'taf'}
-!define out_D867_PAG  {alias dem_D867_PAG   kind 'debug' units 'taf'}
-!define out_D868_PAG  {alias dem_D868_PAG   kind 'debug' units 'taf'}
-!define out_D869_PMI  {alias dem_D869_PMI   kind 'debug' units 'taf'}
-!define out_D870_PMI  {alias dem_D870_PMI   kind 'debug' units 'taf'}
-!define out_D877_PMI  {alias dem_D877_PMI   kind 'debug' units 'taf'}
-!define out_D878_PMI  {alias dem_D878_PMI   kind 'debug' units 'taf'}
-!define out_D879_PMI  {alias dem_D879_PMI   kind 'debug' units 'taf'}
-!define out_D881_PMI  {alias dem_D881_PMI   kind 'debug' units 'taf'}
-!define out_D883_PMI  {alias dem_D883_PMI   kind 'debug' units 'taf'}
-!define out_D884_PMI  {alias dem_D884_PMI   kind 'debug' units 'taf'}
-!define out_D885_PMI  {alias dem_D885_PMI   kind 'debug' units 'taf'}
-!define out_D886_PMI  {alias dem_D886_PMI   kind 'debug' units 'taf'}
-!define out_D887_PMI  {alias dem_D887_PMI   kind 'debug' units 'taf'}
-!define out_D888_PMI  {alias dem_D888_PMI   kind 'debug' units 'taf'}
-!define  out_D895_PMI  {alias dem_D895_PMI   kind 'debug' units 'taf'}
-!define out_D896_PMI  {alias dem_D896_PMI   kind 'debug' units 'taf'}
-!define out_D899_PMI  {alias dem_D899_PMI   kind 'debug' units 'taf'}
-!define out_D403B_PMI {alias dem_D403B_PMI  kind 'debug' units 'taf'}
-!define out_D403C_PMI {alias dem_D403C_PMI  kind 'debug' units 'taf'}
+
+!Output for contractor demands
+define dem_D810_PMI_dv  {alias dem_D810_PMI  kind 'swp-output' units 'TAF' }
+define dem_D813_PMI_dv  {alias dem_D813_PMI  kind 'swp-output' units 'TAF' }
+define dem_D814_PMI_dv  {alias dem_D814_PMI  kind 'swp-output' units 'TAF' }
+define dem_D877_PMI_dv  {alias dem_D877_PMI  kind 'swp-output' units 'TAF' }
+define dem_D868_PAG_dv  {alias dem_D868_PAG  kind 'swp-output' units 'TAF' }
+define dem_D896_PMI_dv  {alias dem_D896_PMI  kind 'swp-output' units 'TAF' }
+define dem_D883_PMI_dv  {alias dem_D883_PMI  kind 'swp-output' units 'TAF' }
+define dem_D847_PAG_dv  {alias dem_D847_PAG  kind 'swp-output' units 'TAF' }
+define dem_D25_PMI_dv   {alias dem_D25_PMI   kind 'swp-output' units 'TAF' }
+define dem_D884_PMI_dv  {alias dem_D884_PMI  kind 'swp-output' units 'TAF' }
+define dem_D849_PAG_dv  {alias dem_D849_PAG  kind 'swp-output' units 'TAF' }
+define dem_D846_PAG_dv  {alias dem_D846_PAG  kind 'swp-output' units 'TAF' }
+define dem_D851A_PMI_dv {alias dem_D851A_PMI kind 'swp-output' units 'TAF' }
+define dem_D851_PAG_dv  {alias dem_D851_PAG  kind 'swp-output' units 'TAF' }
+define dem_D859_PAG_dv  {alias dem_D859_PAG  kind 'swp-output' units 'TAF' }
+define dem_D863_PAG_dv  {alias dem_D863_PAG  kind 'swp-output' units 'TAF' }
+define dem_D867_PAG_dv  {alias dem_D867_PAG  kind 'swp-output' units 'TAF' }
+define dem_D879_PMI_dv  {alias dem_D879_PMI  kind 'swp-output' units 'TAF' }
+define dem_D27_PMI_dv   {alias dem_D27_PMI   kind 'swp-output' units 'TAF' }
+define dem_D851B_PMI_dv {alias dem_D851B_PMI kind 'swp-output' units 'TAF' }
+define dem_D885_PMI_dv  {alias dem_D885_PMI  kind 'swp-output' units 'TAF' }
+define dem_D895_PMI_dv  {alias dem_D895_PMI  kind 'swp-output' units 'TAF' }
+define dem_D899_PMI_dv  {alias dem_D899_PMI  kind 'swp-output' units 'TAF' }
+define dem_D881_PMI_dv  {alias dem_D881_PMI  kind 'swp-output' units 'TAF' }
+define dem_D403B_PMI_dv {alias dem_D403B_PMI kind 'swp-output' units 'TAF' }
+define dem_D802A_PAG_dv {alias dem_D802A_PAG kind 'swp-output' units 'TAF' }
+define dem_D878_PMI_dv  {alias dem_D878_PMI  kind 'swp-output' units 'TAF' }
+define dem_D886_PMI_dv  {alias dem_D886_PMI  kind 'swp-output' units 'TAF' }
+define dem_D887_PMI_dv  {alias dem_D887_PMI  kind 'swp-output' units 'TAF' }
+define dem_D888_PMI_dv  {alias dem_D888_PMI  kind 'swp-output' units 'TAF' }
+define dem_D869_PMI_dv  {alias dem_D869_PMI  kind 'swp-output' units 'TAF' }
+define dem_D870_PMI_dv  {alias dem_D870_PMI  kind 'swp-output' units 'TAF' }
+define dem_D815_PMI_dv  {alias dem_D815_PMI  kind 'swp-output' units 'TAF' }
+define dem_D403C_PMI_dv {alias dem_D403C_PMI kind 'swp-output' units 'TAF' }
+define dem_D848_PAG_dv  {alias dem_D848_PAG  kind 'swp-output' units 'TAF' }
+define dem_D28_PMI_dv   {alias dem_D28_PMI   kind 'swp-output' units 'TAF' }
+define dem_D29_PMI_dv   {alias dem_D29_PMI   kind 'swp-output' units 'TAF' }
 
 
 !***********************************************************************************

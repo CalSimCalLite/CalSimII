@@ -1,7 +1,4 @@
 ==================
-1921_10_c06
+1976_09_c08
 ==================
-(d:\drr2015\bdcp_alt_4\1_dcr2015_base_futurenocc_121214\conv\run\deliverylogic\delcar_swp.wresl:1)1921/10/31 cycle 6 (presetup), swp_perdel_yuba in svar definition: Table swp_nod_alloc could not be found.
-(d:\drr2015\bdcp_alt_4\1_dcr2015_base_futurenocc_121214\conv\run\deliverylogic\delcar_swp.wresl:1)1921/10/31 cycle 6 (presetup), swp_perdel_napa in svar definition: Table swp_nod_alloc could not be found.
-(d:\drr2015\bdcp_alt_4\1_dcr2015_base_futurenocc_121214\conv\run\deliverylogic\delcar_swp.wresl:1)1921/10/31 cycle 6 (presetup), swp_perdel_solano in svar definition: Table swp_nod_alloc could not be found.
-(d:\drr2015\bdcp_alt_4\1_dcr2015_base_futurenocc_121214\conv\run\deliverylogic\delcar_swp.wresl:1)1921/10/31 cycle 6 (presetup), swp_perdel_butt in svar definition: Table swp_butt_alloc could not be found.
+(d:\drr2015\dcr_studies\1_dcr2015_base_futurenocc_20150218\common\delta\isolatedfacility\bdcp_ndd.wresl:1)1976/9/30 cycle 8 (monthlyweighted), tpulseoff2_d16 in svar definition: Case condition evaluation has error.

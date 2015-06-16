@@ -1,0 +1,1 @@
+(d:\drr2015\dcr_studies\1_dcr2015_base_futurenocc_20150218\common\delta\isolatedfacility\bdcp_ndd.wresl:1)1976/9/30 cycle 8 (monthlyweighted), tpulseoff2_d16 in svar definition: Case condition evaluation has error.
