@@ -73,7 +73,7 @@ goal set_ann_C1_alloc { ann_C1_alloc = Class1_delivered + Class1_alloc}
 
 ! Annual Friant-Kern Canal Class 1 delivery computation - updated monthly through June
 define Ann_FK_C1 {
-    case initial {
+    case initialmonth {
         condition month == oct .and. wateryear == 1922
         value 0 }
     case MarthruJun {
@@ -85,7 +85,7 @@ define Ann_FK_C1 {
 
 ! Annual Madera Canal Class 1 delivery computation - updated monthly
 define Ann_Madera_C1 {
-    case initial {
+    case initialmonth {
         condition month == oct .and. wateryear == 1922
         value 0 }
     case MarthruJun {
@@ -97,7 +97,7 @@ define Ann_Madera_C1 {
 
 ! Annual Friant-Kern Canal Class 2 delivery computation - updated monthly
 define Ann_FK_C2 {
-    case initial {
+    case initialmonth {
         condition month == oct .and. wateryear == 1922
         value 0.0 }
     case otherwise {
@@ -106,7 +106,7 @@ define Ann_FK_C2 {
 
 ! Annual Madera Canal Class 2 delivery computation - updated monthly
 define Ann_Madera_C2 {
-    case initial {
+    case initialmonth {
         condition month == oct .and. wateryear == 1922
         value 0.0 }
     case otherwise {
@@ -156,81 +156,81 @@ define sum_Mad_tot_pct {std kind 'percentage-delivered' units 'none'}
 define sum_Mad_C1_pct {std kind 'percentage-delivered' units 'none'}
 
 define sum_Mad_tot_pct_ {
-	case March {
-		condition	month == mar
-		value		0.
-	}
-	case otherwise {
-		condition	always
-		value		sum_Mad_tot_pct(-1) + Madera_tot_pct
-	}
+    case March {
+        condition   month == mar
+        value       0.
+    }
+    case otherwise {
+        condition   always
+        value       sum_Mad_tot_pct(-1) + Madera_tot_pct
+    }
 }
 define sum_Mad_C1_pct_ {
-	case March {
-		condition	month == mar
-		value		0.
-	}
-	case otherwise {
-		condition	always
-		value		sum_Mad_C1_pct(-1) + Madera_C1_pct
-	}
+    case March {
+        condition   month == mar
+        value       0.
+    }
+    case otherwise {
+        condition   always
+        value       sum_Mad_C1_pct(-1) + Madera_C1_pct
+    }
 }
 
 goal set_sum_Mad_tot_pct {sum_Mad_tot_pct = sum_Mad_tot_pct_}
 goal set_sum_Mad_C1_pct {sum_Mad_C1_pct = sum_Mad_C1_pct_}
 
 define rem_Mad_tot_pct_ {
-	case March {
-		condition	month == mar
-		value		100.
-	}
-	case otherwise {
-		condition	always
-		value max(0.,100. - sum_Mad_tot_pct(-1))
-	}
+    case March {
+        condition   month == mar
+        value       100.
+    }
+    case otherwise {
+        condition   always
+        value max(0.,100. - sum_Mad_tot_pct(-1))
+    }
 }
 
 define rem_Mad_C1_pct_ {
-	case March {
-		condition	month == mar
-		value		100.
-	}
-	case otherwise {
-		condition	always
-		value max(0.,100. - sum_Mad_C1_pct(-1))
-	}
+    case March {
+        condition   month == mar
+        value       100.
+    }
+    case otherwise {
+        condition   always
+        value max(0.,100. - sum_Mad_C1_pct(-1))
+    }
 }
 
 define rem_Mad_tot_pct {alias rem_Mad_tot_pct_ kind 'percentage-remaining' units 'none'}
 define rem_Mad_C1_pct {alias rem_Mad_tot_pct_ kind 'percentage-remaining' units 'none'}
 
 define Mad_C1_frc {
-	case denom_zero {
-		condition 	rem_Mad_C1_pct_ < 0.1
-		value		0.
-	}
-	case OctToFeb {
-		condition	month <= 5
-		value		1.
-	}
-	case otherwise {
-		condition	always
-		value min(1.,Madera_C1_pct/rem_Mad_C1_pct_)
-	}
+    case denom_zero {
+        condition   rem_Mad_C1_pct_ < 0.1
+        value       0.
+    }
+    case OctToFeb {
+        condition   month <= 5
+        value       1.
+    }
+    case otherwise {
+        condition   always
+        value min(1.,Madera_C1_pct/rem_Mad_C1_pct_)
+    }
 }
 define Mad_tot_frc {
-	case denom_zero {
-		condition	rem_Mad_tot_pct_ < 0.1
-		value		0.
-	}
-	case OctToFeb {
-		condition	month <= 5
-		value		1.
-	}
-	case otherwise {
-		condition	always
-		value min(1.,Madera_tot_pct/rem_Mad_tot_pct_)
-	}
+    case denom_zero {
+        condition   rem_Mad_tot_pct_ < 0.1
+        value       0.
+    }
+    case OctToFeb {
+        condition   month <= 5
+        value       1.
+    }
+    case otherwise {
+        condition   always
+        value min(1.,Madera_tot_pct/rem_Mad_tot_pct_)
+    }
 }
 
 !define Ann_Fr_tot_out {alias Ann_Fr_tot kind 'temp' units 'taf'}
@@ -288,7 +288,7 @@ goal set_temp007 { temp007 = tot_C2_del }
 
 ! Temporary variable to compute total delivery through previous month
 define temp008 {
-    case initial {
+    case initialyear {
         condition month <= mar .and. wateryear == 1922
         value 0. }
     case otherwise {
@@ -297,7 +297,7 @@ define temp008 {
 
 ! Temporary variable to compute Class 1 delivery through previous month
 define temp009 {
-    case initial {
+    case initialyear {
         condition month <= mar .and. wateryear == 1922
         value 0. }
     case otherwise {
@@ -306,7 +306,7 @@ define temp009 {
 
 ! Temporary variable to compute Class 2 delivery through previous month
 define temp010 {
-    case initial {
+    case initialyear {
         condition month <= mar .and. wateryear == 1922
         value 0. }
     case otherwise {

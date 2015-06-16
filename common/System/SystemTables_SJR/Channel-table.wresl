@@ -59,8 +59,6 @@ define C605A {lower 0 upper 99999 kind 'FLOW-CHANNEL' units 'CFS'} !SJR below Ch
 ! WB define C605B {lower 0 upper 6500 kind 'FLOW-CHANNEL' units 'CFS'} !Chowchilla Bypass I
 define C605B {lower 0 upper 99999 kind 'FLOW-CHANNEL' units 'CFS'} !Chowchilla Bypass   WB
 define C605C {lower 0 upper 99999 kind 'FLOW-CHANNEL' units 'CFS'} !Proposed channel    WB
-define C607X {lower 0 upper 99999 kind 'FLOW-CHANNEL' units 'CFS'} !Reach3BFlood
-define C607Y {lower 0 upper 99999 kind 'FLOW-CHANNEL' units 'CFS'} !Reach3B
 define C607 {lower 0 upper 99999 kind 'FLOW-CHANNEL' units 'CFS'} !SJR below Mendota Pool
 define C608 {lower 0 upper 99999 kind 'FLOW-CHANNEL' units 'CFS'} !SJR Mendota Pool to Sack Dam   WB
 define C609B {lower 0 upper 0000 kind 'FLOW-CHANNEL' units 'CFS'} !SJR Sack Dam to Sand Slu    WB  will be greater than 0.0 with restoration flow

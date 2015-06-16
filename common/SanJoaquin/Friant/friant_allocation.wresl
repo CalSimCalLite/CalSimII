@@ -38,7 +38,7 @@ define tot_und_D18B_C1_ {
 goal set_tot_und_D18B_C1 {tot_und_D18B_C1 = tot_und_D18B_C1_}
 
 define unf_spill {value (C18F(-1) + D18F(-1))*cfs_taf(-1)
-		+ max(0.,((D18A_16B(-1) + D18B_16B(-1) + D18A_215(-1) + D18B_215(-1))*cfs_taf(-1) - Fr_snow_rel_vol(-1)))} ! Spill above snowmelt forecast release.
+        + max(0.,((D18A_16B(-1) + D18B_16B(-1) + D18A_215(-1) + D18B_215(-1))*cfs_taf(-1) - Fr_snow_rel_vol(-1)))} ! Spill above snowmelt forecast release.
 
 define tot_und_D18B_C2_ {
         case March {
@@ -72,7 +72,7 @@ define Class1_delivered {
         case march {
             condition month == mar
             value 0.0 }
-        case initial {
+        case initialyear {
             condition month < mar .and. wateryear == 1922
             value 0.0 }
         case otherwise {
@@ -261,7 +261,7 @@ define Class2_delivered {
         case march {
             condition month == mar
             value 0.0 }
-        case initial {
+        case initialyear {
             condition month < mar .and. wateryear == 1922
             value 0.0 }
         case otherwise {

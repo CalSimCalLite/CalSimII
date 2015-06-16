@@ -1,1 +1,1 @@
-(d:\drr2015\1_drr2015_futurenocc_102814\common\northofdelta\american\fmstandard.wresl:1)1921/10/31 cycle 6 (presetup), amerfmptrigger in svar definition: The data requested for timeseries uarm is outside of the time frame provided in dss file.
+(d:\drr\2015_drr_studies\dcr_2015_base_development\1_dcr2015_base_futurenocc_cq_aa_updates_120914\common\sanjoaquin\stanislaus\stan_fw_pulse.wresl:1)1922/4/30 cycle 3 (sjr_pulse), stanpulse in svar definition: aprpulse in the select statement is not a field name in Table stan_pulse_rpa
