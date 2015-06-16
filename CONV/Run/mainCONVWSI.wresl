@@ -62,9 +62,9 @@ MODEL SJRBASE {         !CYCLE 1
     INCLUDE[LOCAL] '..\..\common\ReOperations\Transfers\TransfersPreOps_Cyc1thru5.wresl'
     INCLUDE '..\..\common\hydrology\demands\demands_defs.wresl'
 
-!    INCLUDE 'BaseStudyResults\BaseStudyResults.wresl'                !Read in results from B2-submodel
-!    INCLUDE[local] '..\..\common\B2Actions\B2VarDefine.wresl'   !Set up for reimplementing B2 actions !CB made local (arc/dvar conflict)
-!    INCLUDE '..\..\common\B2Actions\Repeat\B2ActConditionsFix.wresl'        !Set up for reimplementing B2 actions
+    INCLUDE 'BaseStudyResults\BaseStudyResults.wresl'                !Read in results from B2-submodel
+    INCLUDE[local] '..\..\common\B2Actions\B2VarDefine.wresl'   !Set up for reimplementing B2 actions !CB made local (arc/dvar conflict)
+    INCLUDE '..\..\common\B2Actions\Repeat\B2ActConditionsFix.wresl'        !Set up for reimplementing B2 actions
 
     INCLUDE '..\..\common\hydrology\forecast\forecast.wresl'
     INCLUDE '..\..\common\cvp_dellogic\cvp_dellogic_sys\cvp_dellogic_sys_cycle1.wresl'
@@ -393,7 +393,8 @@ MODEL MONTHLYWEIGHTED {      !CYCLE 8
     INCLUDE[LOCAL] '..\..\common\NorthOfDelta\Sacramento\NODOS\ERP\NODOS_ERP_preFlowSelect.wresl'
     INCLUDE[LOCAL] '..\..\common\NorthOfDelta\nod.wresl'
     INCLUDE[LOCAL] '..\..\common\NorthOfDelta\American\FMStandard.wresl'
-    INCLUDE[LOCAL] '..\..\common\NorthOfDelta\Sacramento\setnodminflows.wresl' ! Set minimum flows at Keswick, Whiskeytown, and Nimbus
+    !INCLUDE[LOCAL] '..\..\common\NorthOfDelta\Sacramento\setnodminflows.wresl' ! Set minimum flows at Keswick, Whiskeytown, and Nimbus
+    INCLUDE[LOCAL] 'B2Actions\B2ActionsUpstreamRepeat_wsidi.wresl'   !Add B2Upstream Actions
 !    INCLUDE[LOCAL] '..\..\common\NorthOfDelta\American\Cycle7_Hst.wresl'
 
     INCLUDE[local] 'ReOperations\integration\NOD_Storage_Transfer.wresl'
@@ -489,7 +490,8 @@ MODEL WHEELCVC {      !CYCLE 9
     INCLUDE[LOCAL] '..\..\common\NorthOfDelta\Sacramento\NODOS\ERP\NODOS_ERP_preFlowSelect.wresl'
     INCLUDE[LOCAL] '..\..\common\NorthOfDelta\nod.wresl'
     INCLUDE[LOCAL] '..\..\common\NorthOfDelta\American\FMStandard.wresl'
-    INCLUDE[LOCAL] '..\..\common\NorthOfDelta\Sacramento\setnodminflows.wresl' ! Set minimum flows at Keswick, Whiskeytown, and Nimbus
+    !INCLUDE[LOCAL] '..\..\common\NorthOfDelta\Sacramento\setnodminflows.wresl' ! Set minimum flows at Keswick, Whiskeytown, and Nimbus
+    INCLUDE[LOCAL] 'B2Actions\B2ActionsUpstreamRepeat_wsidi.wresl'   !Add B2Upstream Actions
 !    INCLUDE[LOCAL] '..\..\common\NorthOfDelta\American\Cycle7_Hst.wresl'
 
     INCLUDE[local] 'ReOperations\integration\NOD_Storage_Transfer.wresl'

@@ -6,7 +6,7 @@
 <stringAttribute key="wpp.debugModel.ATTR_WPP_DATATRANSFER_MS2" value=""/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_DATE" value=""/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_DESCRIPTION" value=""/>
-<stringAttribute key="wpp.debugModel.ATTR_WPP_DVAR" value="CONV\DSS\DCR2015_base_newWSIDI_DV"/>
+<stringAttribute key="wpp.debugModel.ATTR_WPP_DVAR" value="CONV\DSS\DCR2015_base_20150116_wsiDI_retrain_DV"/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_DVAR_MS2" value=""/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_ENDDAY" value="30"/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_ENDMONTH" value="sep"/>
@@ -14,7 +14,7 @@
 <stringAttribute key="wpp.debugModel.ATTR_WPP_FREEXA" value="no"/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_GWDATA" value=""/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_GWDATA_MS2" value=""/>
-<stringAttribute key="wpp.debugModel.ATTR_WPP_INIT" value="D:\DRR2015\BDCP_Alt_4\4abcd_DCR2015_FREW_IF_OMR_RV\common\DSS\2020D09EINIT.DSS"/>
+<stringAttribute key="wpp.debugModel.ATTR_WPP_INIT" value="common\DSS\2020D09EINIT.DSS"/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_INITFPART" value="2020D09E"/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_INITFPART_MS2" value=""/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_INIT_MS2" value=""/>
@@ -28,13 +28,13 @@
 <stringAttribute key="wpp.debugModel.ATTR_WPP_PADVSTARTYEAR" value="2014"/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_PARESETDVSTART" value="no"/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_PASTARTINTERVAL" value="12"/>
-<stringAttribute key="wpp.debugModel.ATTR_WPP_PROGRAM" value="CONV\Run\mainCONVWSI.wresl"/>
+<stringAttribute key="wpp.debugModel.ATTR_WPP_PROGRAM" value="CONV\Run\mainCONV_SA.wresl"/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_PROGRAM_MS2" value=""/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_STARTDAY" value="31"/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_STARTMONTH" value="oct"/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_STARTYEAR" value="1921"/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_STUDY" value="DCR2015_base"/>
-<stringAttribute key="wpp.debugModel.ATTR_WPP_SVAR" value="D:\DRR2015\BDCP_Alt_4\4abcd_DCR2015_FREW_IF_OMR_RV\common\DSS\2020D09ESV.dss"/>
+<stringAttribute key="wpp.debugModel.ATTR_WPP_SVAR" value="common\DSS\2020D09ESV.dss"/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_SVAR_MS2" value=""/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_SVFPART" value="2020D09E"/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_SVFPART_MS2" value=""/>
