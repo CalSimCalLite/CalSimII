@@ -6,7 +6,7 @@
 <stringAttribute key="wpp.debugModel.ATTR_WPP_DATATRANSFER_MS2" value=""/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_DATE" value=""/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_DESCRIPTION" value=""/>
-<stringAttribute key="wpp.debugModel.ATTR_WPP_DVAR" value="CONV\DSS\DCR2015_base_NOD_Settlement_FREWoff_DV"/>
+<stringAttribute key="wpp.debugModel.ATTR_WPP_DVAR" value="CONV\DSS\DCR2015_base_newWSIDI_DV"/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_DVAR_MS2" value=""/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_ENDDAY" value="30"/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_ENDMONTH" value="sep"/>
@@ -28,7 +28,7 @@
 <stringAttribute key="wpp.debugModel.ATTR_WPP_PADVSTARTYEAR" value="2014"/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_PARESETDVSTART" value="no"/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_PASTARTINTERVAL" value="12"/>
-<stringAttribute key="wpp.debugModel.ATTR_WPP_PROGRAM" value="CONV\Run\mainCONV_SA.wresl"/>
+<stringAttribute key="wpp.debugModel.ATTR_WPP_PROGRAM" value="CONV\Run\mainCONVWSI.wresl"/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_PROGRAM_MS2" value=""/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_STARTDAY" value="31"/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_STARTMONTH" value="oct"/>
