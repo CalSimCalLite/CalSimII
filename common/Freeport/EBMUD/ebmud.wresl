@@ -4,71 +4,8 @@
 
 define D168B_ebmud {std kind 'flow-delivery' units 'cfs'}
 
-! Flag for EBMUD's ability to take CVP water per contract
-define CVP_ind_dv {std kind 'FLAG' units 'NONE'}
-define CVP_ind {
-	case Oct1922 {
-		condition month == Oct .and. wateryear == 1922
-		value 0.0 }
-	case March {
-		condition	month == Mar
-		select indicator from EBMUD_CVP where ContractYear = wateryear}
-	case otherwise {
-		condition	always
-		value		CVP_ind_dv(-1)}
-}
+define alloc_d168b_ebmud  {timeseries kind 'ALLOC-CVP-MI' units 'TAF' convert 'CFS'}      !Allocation amount for EBMUD Freeport
 
-goal save_CVP_ind {CVP_ind_dv = CVP_ind}
-
-! Contract year cumulative EBMUD CVP diversion
-define annCVPdivEBMUDdv {std kind 'annual-diversion' units 'taf'}
-define annCVP_div_EBMUD {
-	case Oct1922 {
-		condition month == Oct .and. wateryear == 1922
-		value 0.0 }
-	case March {
-		condition	month == Mar
-		value		0.0 }
-	case otherwise {
-		condition	always
-		value		annCVPdivEBMUDdv(-1) + D168B_EBMUD(-1)*cfs_taf(-1)}
-}
-goal annEMBUDdv {annCVPdivEBMUDdv = annCVP_div_EBMUD}
-!define ann_EBMUD_lim {std kind 'diversion-limit' units 'taf'}
-! Set a diversion limit based on 1) CVP M&I allocation and 2) No more than 65 TAF in a single year
-define ann_EBMUD_lim1 {value max(133.*perdel_CVPMI_sys - annCVP_div_EBMUD, 0.0)*CVP_ind}
-define ann_EBMUD_lim2 {value max(65. - annCVP_div_EBMUD, 0.0)*CVP_ind}
-
-! 3-Year cumulative CVP EBMUD diversion
-define TyrCVPdivEBMUDdv {std kind 'diversion' units 'taf'}
-define TyrCVP_div_EBMUD {
-	case Early {
-		condition wateryear < 1925
-		value 0.0 }
-	case March {
-		condition	month == Mar
-		value		annCVPdivEBMUDdv(-1) + D168B_EBMUD(-1)*cfs_taf(-1) + annCVPdivEBMUDdv(-13) + D168B_EBMUD(-13)*cfs_taf(-13) }
-	case otherwise {
-		condition	always
-		value		TyrCVPdivEBMUDdv(-1) + D168B_EBMUD(-1)*cfs_taf(-1)}
-}
-
-goal TyrEBMUDdv {TyrCVPdivEBMUDdv = TyrCVP_div_EBMUD}
-
-! Set a diversion limit so cumulative 3-year deliveries not exceeding 165 taf
-define Tyr_EBMUD_lim {value max(165. - TyrCVP_div_EBMUD, 0.0)}
-
-!define alloc_d168b_ebmud  {timeseries kind 'ALLOC-CVP-MI' units 'TAF' convert 'CFS'}      !Allocation amount for EBMUD Freeport
-
-! Constrain diversions based on defined limits
 goal capD168Bebmud {D168B_ebmud < 154.7 } !EBMUD use of capacity set to max of 100 MGD
-goal annD168Bebmud1 {D168B_ebmud < ann_EBMUD_lim1 * taf_cfs}
-goal annD168Bebmud2 {D168B_ebmud < ann_EBMUD_lim2 * taf_cfs}
-goal TyrD168Bebmud {D168B_ebmud < Tyr_EBMUD_lim * taf_cfs}
+goal setD168Bebmud {D168B_ebmud < alloc_D168B_ebmud}
 
-
-!goal setD168Bebmud {D168B_ebmud < alloc_D168B_ebmud} NOT USED WITH REVISED CODE - LGB
-
-! OCAP Code
-!define alloc_d168b  {timeseries kind 'ALLOC-CVP-MI' units 'TAF' convert 'CFS'}      !Allocation amount for EBMUD Freeport
-!goal setD168B {D168B < alloc_D168B} NOT USED WITH REVISED CODE - LGB
