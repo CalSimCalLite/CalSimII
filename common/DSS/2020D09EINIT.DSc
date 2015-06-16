@@ -1,7 +1,7 @@
 
-     HECDSS Complete Catalog of Record Pathnames in File C:\DCR_Studies\1_DCR2015_Base_FutureNoCC_20150127_dynDCMP\common
+     HECDSS Complete Catalog of Record Pathnames in File D:\DRR2015\_Base\1_DCR2015_Base_FutureNoCC_rd_fms_sjrr_20150129\
 
-     Catalog Created on Jan 27, 2015 at 11:52    File Created on Aug 9, 2009
+     Catalog Created on Feb 2, 2015 at 13:01     File Created on Aug 9, 2009
      Number of Records:    273                   DSS Version 6-QF,  File 6-KC
      Sort Order: ABCFED
 

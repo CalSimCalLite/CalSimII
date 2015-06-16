@@ -1,8 +1,8 @@
 
-     HECDSS Condensed Catalog of Record Pathnames in File C:\DCR_Studies\1_DCR2015_Base_FutureNoCC_20150127_dynDCMP\common
+     HECDSS Condensed Catalog of Record Pathnames in File D:\DRR2015\_Base\1_DCR2015_Base_FutureNoCC_rd_fms_sjrr_20150129\
 
-     Catalog Created on Jan 27, 2015 at 11:52    File Created on Jun 17, 2013
-     Number of Records:   6066                   DSS Version 6-QF,  File 6-QF
+     Catalog Created on Feb 2, 2015 at 13:01     File Created on Jun 17, 2013
+     Number of Records:   6057                   DSS Version 6-QF,  File 6-QF
      Sort Order: ABCFED
 
  Tag    A Part  B Part               C Part              F Part    E Part  D Part
@@ -607,7 +607,6 @@
  T2413  - - -   PERDEM_70SMUD        DELIVERY-PATTERN    2020D09E  1MON    01JAN1920 - 01JAN2000
  T1753  - - -   PRJ_DR58             DEMAND              2020D09E  1MON    01JAN1920 - 01JAN2000
  T1117  - - -   PRJ_DR70_IMI         DEM-CVP-INDOORMI    2020D09E  1MON    01JAN1920 - 01JAN2000
- T1735  - - -   R135C_DCMP           RETURN-FLOW         2020D09E  1MON    01JAN1920 - 01JAN2000
  T6004  - - -   R135C_DCMP_MAX       RETURN-FLOW         2020D09E  1MON    01JAN1920 - 01JAN2000
  T2953  - - -   RDCMP_131_NP         DEMAND              2020D09E  1MON    01JAN1920 - 01JAN2000
  T4456  - - -   RDCMP_131_SC         DEMAND              2020D09E  1MON    01JAN1920 - 01JAN2000

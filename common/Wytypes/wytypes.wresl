@@ -177,18 +177,6 @@ define contract_month {
         value 0 }
 }
 
-define wyt_SJRRest {
-    case OCTtoJAN {
-         condition  month >= OCT .and. month <= JAN
-         select     YT
-         from       wytypeSJR_Rest
-         where      wy=wateryear - 1.}
-    case rest {
-         condition  always
-         select     YT
-         from       wytypeSJR_Rest
-         where      wy=wateryear}
-}
 
 ! Specific to NODOS project
 define wyt_NODOS {
