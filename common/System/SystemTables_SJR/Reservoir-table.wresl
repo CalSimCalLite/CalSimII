@@ -257,7 +257,7 @@ define S81_3 {std kind 'STORAGE-ZONE' units 'TAF'}
 goal S81Zone3 {S81_3 < S81level3-S81level2}
 define S81level4 {timeseries kind 'STORAGE-LEVEL' units 'TAF'}
 define S81_4 {std kind 'STORAGE-ZONE' units 'TAF'}
-goal S81Zone4 {S81_4 < S81level4-S81level3}
+goal S81Zone4 {S81_4 < max(0.,S81level4-S81level3)}
 define S81level5 {value 2030}
 define S81_5 {std kind 'STORAGE-ZONE' units 'TAF'}
 goal S81Zone5 {S81_5 < S81level5-S81level4}

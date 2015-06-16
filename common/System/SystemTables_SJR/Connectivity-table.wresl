@@ -3,6 +3,7 @@ goal continuity603 {C18-D603-C603-L603=0} !
 goal continuity605 {C603-C605A-C605B-C605C-L605=0} !Chowchilla Bifurcation  WB
 goal continuity607 {C605A+I607+I607_WTS+C708+R607West-C607-D607A-C607BC-D607D-L607=0} !Mendota Pool  WB
 goal continuity607_1 {C607BC-D607B-D607C=0} !
+goal Reach3BRest {C607-C607X-C607Y=0}
 goal continuity608 {C607+C605C-C608-L608-C608BC=0} !Sack Dam    WB
 goal continuity608_1 {C608BC-D608B-D608C=0}
 goal continuity609 {C608-C609A-C609B-L609=0} !Sand Slu    WB
