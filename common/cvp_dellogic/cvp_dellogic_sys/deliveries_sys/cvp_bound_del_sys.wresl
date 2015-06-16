@@ -51,14 +51,14 @@ define ad_d104_psc {value perdel_cvpsc_sys*dem_d104_psc*taf_cfs}
 
 ! Contract based demand definition and calculation for DSA 58 starts here -- MZE
 define demand_prj_58 {value max((prj_dr58*taf_cfs - mingw_58*perc_dr58*taf_cfs),0.0)}
-define con_d104_pag {select contract from nodcvpcontract where contractor=1}
-define con_d104_pmi {select contract from nodcvpcontract where contractor=2}
-define con_d104_psc {select contract from nodcvpcontract where contractor=3}
-define con_58_total {select contract from nodcvpcontract where contractor=4} !total DSA 58 contract demand
+! define con_d104_pag {select contract from nodcvpcontract where contractor=1} ! contract requirements are addressed in the demand time-series
+! define con_d104_pmi {select contract from nodcvpcontract where contractor=2}
+! define con_d104_psc {select contract from nodcvpcontract where contractor=3}
+! define con_58_total {select contract from nodcvpcontract where contractor=4} !total DSA 58 contract demand
 
-define target_d104_pag {value min(ad_d104_pag, demand_prj_58*con_d104_pag/con_58_total)}
-define target_d104_pmi {value min(ad_d104_pmi, demand_prj_58*con_d104_pmi/con_58_total)}
-define target_d104_psc {value min(ad_d104_psc, demand_prj_58*con_d104_psc/con_58_total)}
+define target_d104_pag {value ad_d104_pag}
+define target_d104_pmi {value ad_d104_pmi}
+define target_d104_psc {value ad_d104_psc}
 ! End of Modification for DSA 58 -- MZE
 
 ! Set limit on DSA 58 contract demands -- MZE

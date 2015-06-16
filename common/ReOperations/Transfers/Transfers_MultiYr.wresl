@@ -18,6 +18,20 @@ define PrevYrYubaGW {
 }
 goal setPrevYrYubaGWdv {PrevYrYubaGWdv = PrevYrYubaGW }
 !
+
+!Track SW transfers for following refill operations
+define cum_I204_WTS {std kind 'CUM-LYRA-SW-Transfer' units 'TAF'}
+goal set_cum_I204_WTS {
+	lhs	cum_I204_WTS
+	case OctoberToMay {
+		condition	range(month,oct,may)
+		rhs			0
+	}
+	case otherwise {
+		condition	always
+		rhs			cum_I204_WTS(-1) + I204_WTS*cfs_taf
+	}
+}
 define YubaSWdv       {std kind 'WTS-Acquisition' units 'taf'}
 define PrevYrYubaSWdv {std kind 'Acquisition' units 'taf'}
 define PrevYrYubaSW {
@@ -26,7 +40,7 @@ define PrevYrYubaSW {
             value 0. }
       case Oct {
             condition month == OCT
-            value   YubaSWdv(prevSep) }
+            value   cum_I204_WTS(prevSep) }
       case otherwise {
             condition always
             value PrevYrYubaSWdv(-1) }
