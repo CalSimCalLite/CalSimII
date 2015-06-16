@@ -80,82 +80,61 @@ define dem_D167b_pmi_a {timeseries kind 'DEMAND-CVP-MI' units 'TAF'} !Annual dem
 !See demand spreadsheet nod_demands.xls
 !%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-!Special allocations for Hodge Decision flow criteria
-!If flow in the lower American River is less than the Hodge Decision flow levels,
-!then more of the City of Sac demand is shifted to the Sac River
+! Hodge Decision implementation
+! If flow in the lower American River is less than specified threshold levels,
+! then limits are placed on American River Diversion to City of Sacramento (D302A)
+! and the balance of the delivery is moved to the Sacramento River Diversion point (D167A)
 
-! define the two levels of allocation for D302a(American Diversion) and D167(Sacramento Diversion)
-! Modified by T. Crawford
+define dem_D167a_wr  {value dem_D167a_wr_ann * perdem_70Sac * taf_cfs}  ! full City of Sac entitlement
+define dem_D302a_wr  {value dem_D302a_wr_ann * perdem_70Sac * taf_cfs}  ! City of Sac water right at Fairbairn
 
-!**************
-! City of Sacramento
-!**************
+! trigger is the hodge flow criteria for flow past Fairbairn
+define Hodge_thresh {
+       case OCT     { condition month == OCT           value     1879.0 }
+       case NOV_FEB { condition range(month,nov,feb)   value     2000.0 }
+       case MAR_JUN { condition range(month,mar,jun)   value     3000.0 }
+       case JUL_SEP { condition always                 value     1750.0 }
+}
+! If flow at 302 is below threshold, diversion limited to these values
+define Hodge_div_limit {
+       case OCT_DEC     { condition range(month,oct,dec) value     100.0 }
+       case JUN_AUG     { condition range(month,jun,aug) value     155.0 }
+       case JAN_MAY_SEP { condition always               value     120.0 }
+}
 
-define dem_D167a_wr  {value dem_D167a_wr_ann * perdem_70Sac * taf_cfs}
-define dem_D302a_wr  {value dem_D302a_wr_ann * perdem_70Sac * taf_cfs}
-
-/* comment out by ad swri 11/23/04 for without water forum case
-! Set up the integer and accompanying goals that determine if flow is above or below the Hodge flow levels triggers.
-define Hodge_trigger {
-       case OCT {
-            condition month == OCT
-            value     1879.0 }
-
-       case NOV_FEB {
-            condition month >= NOV .and. month <= FEB
-            value     2000.0 }
-
-       case MAR_JUN {
-            condition month >= MAR .and. month <= JUN
-            value     3000.0 }
-
-       case JUL_SEP {
-            condition always
-            value     1750.0 }
-       }
-
-define Hodge_flow_limit {
-       case OCT_DEC {
-            condition month >= OCT .and. month <= DEC
-            value     100.0 }
-
-       case JUN_AUG {
-            condition month >= JUN .and. month <= AUG
-            value     155.0 }
-
-       case FEB_MAY_SEP {
-            condition always
-            value     120.0 }
-       }
-
-define dem_d302a_wf {
-       case above_Hodge {
-            condition minflow_C9_ >= Hodge_trigger
-            value     dem_d302a_wr}
-       case below_Hodge {
-            condition always
-            value     min(Hodge_flow_limit, dem_d302a_wr)}
-       }
-
-define dem_d167a_wf {
-       case above_Hodge {
-            condition minflow_C9_ >= Hodge_trigger
-            value     dem_d167a_wr}
-       case below_Hodge {
-            condition always
-            value     dem_d167a_wr + dem_d302a_wr - min(dem_d302a_wr, Hodge_flow_limit)}
-       }
-*/
-
-! added by swri 11/23/04 for without water forum case
-!define dem_d302a_wf {value dem_d302a_wr - dem_d302a_wr*percut0_sys }
 define dem_d302a_wf {value dem_d302a_wr }
 define dem_d167a_wf  {value dem_d167a_wr}
-!define dem_d167a_wf {STD kind 'DEMAND-NP-MI'  units 'CFS'}
-!goal set_dem_d167a_wf {dem_d167a_wf = dem_d167a_wr}
 
 define dem_d302a_wfdv {alias dem_d302a_wf kind 'DEMAND-WATER-FORUM' units 'cfs'}
 define dem_d167a_wfdv {alias dem_d167a_wf kind 'DEMAND-WATER-FORUM' units 'cfs'}
+
+! set up integer to determine the condition for limiting diversions to City of Sac
+define Hst_max {value 99999.*taf_cfs}
+define int_Hst_abv {INTEGER std kind 'INTEGER' units 'NONE'}            ! 1 if C302 > threshold
+define int_Hst_blw {alias 1. - int_Hst_abv kind 'INTEGER'units 'NONE'}  ! 1 if C302 < threshold
+define Hst_above {std kind 'FLOW-HST-ABV' units 'CFS'}
+define Hst_below {std kind 'FLOW-HST-BLW' units 'CFS'}
+
+goal Hst_flow {Hst_above - Hst_below = C302 - Hodge_thresh} 
+goal Hst_abv_force {Hst_above < int_Hst_abv*Hst_max}
+goal Hst_blw_force {Hst_below < int_Hst_blw*Hst_max}
+
+! in goal 1 below, diversion is limited to either the demand or the hodge criteria limit
+! in goal 2 below, diversion is limited to the demand only, for the potential case that 
+! the demand is lower than the hodge limit if the hodge criteria is controling
+goal limit_d302a_np1  {d302a_np < int_Hst_abv*dem_D302a_wf + int_Hst_blw*Hodge_div_limit} 
+goal limit_d302a_np2  {d302a_np < dem_D302a_wf} 
+
+! demand at 167a should be the full demand for City of Sac.  Delivery is limited to the 
+! full demand less whatever is diverted at Fairbairn WTP on the American (D302A)
+define dem_D167a_base {value max(0., dem_d167a_wr - dem_d302a_wr)} ! this is the remainder of the entitlement
+define Hodge_cut  {std kind 'reduction-cfs' units 'cfs'}
+goal setHodge_cut {Hodge_cut = int_Hst_blw * max(0., dem_d302a_wr - Hodge_div_limit)}  ! how much of the demand cannot be taken at 302
+goal limit_d167a_np  {d167a_np < dem_D167a_wf - d302a_np}          ! 
+goal limit_d167a_np2 {
+    lhs D167a_np 
+    rhs dem_D167a_base + Hodge_cut
+    lhs<rhs penalty 50 }    
 
 !******************************************************************************************************************
 
@@ -241,7 +220,7 @@ goal set_dem_D162e_wf {dem_D162e_wfdv = dem_D162e_wf * cfs_taf}
 
 define dem_D8h_wfdv {std kind 'DEMAND-WATER-FORUM' units 'TAF'}
 
-define dem1_D8h_pmi_a {select PCWAPump from American_PRJ_WR where index=1} !Annual project demand
+define dem1_D8h_pmi_a {select PCWASac from American_PRJ_WR where index=1} !Annual project demand
 define adj_D8h_pmi_ann {value min(dem_D8h_pmi_ann, dem1_D8h_pmi_a * perdel_cvpmi_sys)} !Adjust contract amount for CVP cuts
 define adj_D8h_pmi {value adj_D8h_pmi_ann * perdem_70PCWA * taf_cfs}
 define dem_D8h_wr  {value dem_D8h_wr_ann * perdem_70PCWA * taf_cfs}
@@ -544,34 +523,6 @@ goal limit_d302c_np {d302c_np < dem_D302c_wr} !NEW
 !goal limit_d300_pmi {d300_pmi < adj_D300_pmi}
 goal limit_d300_np  {d300_np < dem_D300_wr}
 
-!**************
-! City of Sacramento
-! Special Code for City of Sacramento - Shifting diversion from American R to Sacramento
-!**************
-
-define Hst_max {value 99999.*taf_cfs}
-define Hst_threshold { value 1.0} !units cfs
-define int_Hst_abv {INTEGER std kind 'INTEGER' units 'NONE'}
-define int_Hst_blw {alias 1. - int_Hst_abv kind 'INTEGER'units 'NONE'}
-define Hst_above {std kind 'FLOW-HST-ABV' units 'CFS'}
-define Hst_below {std kind 'FLOW-HST-BLW' units 'CFS'}
-
-goal Hst_flow {Hst_above - Hst_below = C303_EXC - Hst_threshold - dem_D302a_wf}
-goal Hst_abv_force {Hst_above < int_Hst_abv*Hst_max}
-goal Hst_blw_force {Hst_below < int_Hst_blw*Hst_max}
-
-goal limit_d302a_np2 {dem_D302a_wf > d302a_np } !NEW
-goal limit_d167a_np {lhs d167a_np rhs dem_D167a_wf - dem_D302a_wf lhs<rhs penalty 0 lhs>rhs penalty 99999} !NEW
-
-!goal open_d167a { d167a_np = dem_D302a_wf*int_Hst_blw}
-!goal help_int2 {lhs d302a_np rhs 0.0 lhs>rhs penalty 0.000001}
-!goal limit_d302a_np1 {d302a_np < C303_EXC - dem_D302a_wf }
-!goal limit_d302a_np2 {dem_D302a_wf > d302a_np + d167a_np} !NEW
-!goal limit_d167a_np {d167a_np < dem_D167a_wf*perdel_cvpmi_sys - dem_D302a_wf*perdel_cvpmi_sys }
-!goal limit_d167a_np {d167a_np < dem_D167a_wf - dem_D302a_wf }
-
-
-
 
 !%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -608,9 +559,10 @@ goal set_gp66_np      {gp66_np > minpump_70_np*taf_cfs + WTS_GW70 }   !adjust fo
 ! 1) Minimum non-project GW pumping 2) Surface water diversions 3) River gains diversions (D168a) 4) Additional GW pumping
 goal limit_gp66_np    {
               lhs gp66_np
-              rhs minpump_70_np + WTS_GW70*cfs_taf    !adjust for GW substitution transfers
+              rhs minpump_70_np*taf_cfs + WTS_GW70   !adjust for GW substitution transfers
               lhs>rhs penalty 100*taf_cfs
               }
+goal limitD168a {D168A < I9 + I302 + I166}  ! Rough attempt to limit Sac River diversions to available gains
 
 ! This constraint prevents diversions from D162, D8 and D300 from circumventing the DSA70 Diversion Requirement
 ! accidentally through the imported water spill arc C308

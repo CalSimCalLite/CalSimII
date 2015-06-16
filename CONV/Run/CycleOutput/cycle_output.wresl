@@ -974,6 +974,12 @@ define[local] S1LEVEL3DVUP {alias S1LEVEL3DV[UPSTREAM] kind 'debug' units 'cfs'}
 define[local] S6LEVEL3DVUP {alias S6LEVEL3DV[UPSTREAM] kind 'debug' units 'cfs'}
 define[local] S6LEVEL4DVUP {alias S6LEVEL4DV[UPSTREAM] kind 'debug' units 'cfs'}
 
+define C302PRE {alias C302[PRESETUP] kind 'output-cfs' units 'cfs'}
+define C302SET {alias C302[SETUP] kind 'output-cfs' units 'cfs'}
+define C302MW {alias C302[MONTHLYWEIGHTED] kind 'output-cfs' units 'cfs'}
+define C302UP {alias C302[UPSTREAM] kind 'output-cfs' units 'cfs'}
+define C302DLT {alias C302[DELTA] kind 'output-cfs' units 'cfs'}
+
 !Additional aliases it was easier to add here:
 define JonesAllowOut {alias TracyMaxAllow kind 'EXPORT-CTRL-JONES' UNITS 'CFS' }
 define maxJonescalcDV {alias maxTracycalc Units 'cfs'}

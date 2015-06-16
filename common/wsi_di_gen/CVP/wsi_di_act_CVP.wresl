@@ -5,10 +5,10 @@
 !Sanjay Pahuja/Rob Leaf  HILL 1/9/02
 !di modified to include trinity
 ! Define variables to be used in WSI-DI curve generation
-define DI_act_CVP_s    {std kind 'DEMAND-INDEX' units 'TAF'}
-define DI_act_CVP_sys  {std kind 'DEMAND-INDEX' units 'TAF'}
-define WSI_act_CVP_s   {std kind 'WATER-SUPPLY-INDEX' units 'TAF'}
-define WSI_act_CVP_sys {std kind 'WATER-SUPPLY-INDEX' units 'TAF'}
+define DI_act_CVP_s    {upper unbounded lower unbounded kind 'DEMAND-INDEX' units 'TAF'}
+define DI_act_CVP_sys  {upper unbounded lower unbounded kind 'DEMAND-INDEX' units 'TAF'}
+define WSI_act_CVP_s   {upper unbounded lower unbounded kind 'WATER-SUPPLY-INDEX' units 'TAF'}
+define WSI_act_CVP_sys {upper unbounded lower unbounded kind 'WATER-SUPPLY-INDEX' units 'TAF'}
 
 !  =============================== Set DI values ===================================
 !  The demand index for the southern portion of the system is comprised of all southern
@@ -29,7 +29,7 @@ goal set_DI_CVP_s {
 
      case other {
           condition      always
-          rhs            0.0 }
+          rhs            -1.0 }
 }
 
 ! The demand index for the entire system is comprised of all northern + southern
@@ -45,7 +45,7 @@ goal set_DI_CVP_sys {
 
      case other {
           condition      always
-          rhs            0.0 }
+          rhs            -1.0 }
 }
 
 ! =============================== Set WSI values ===================================
@@ -60,7 +60,7 @@ goal set_WSI_CVP_sys {
           rhs            WSI_CVP_sys }
      case other {
           condition      always
-          rhs            0.0 }
+          rhs            -1.0 }
 }
 
 !define erik_n {alias tot_del_cvp_n kind 'test' units 'taf'}

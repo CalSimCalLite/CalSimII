@@ -383,7 +383,7 @@ MODEL MONTHLYWEIGHTED {      !CYCLE 8
     INCLUDE[local] '..\..\common\delta\Ann\AnnCommon1.wresl'
     INCLUDE[local] '..\..\common\export_ops\DCC_stub.wresl'
     INCLUDE[local] '..\..\common\delta\xchannel\xc-gates.wresl'
-    INCLUDE[LOCAL] '..\..\common\Delta\MRDO\X2\X2setup_ANN.wresl'
+    INCLUDE[LOCAL] '..\..\common\Delta\MRDO\X2\X2setup_ANN_FWS.wresl'
 
     INCLUDE[LOCAL] '..\..\common\CCWD\LVM_Ops1.wresl'
 

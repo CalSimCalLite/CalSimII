@@ -146,7 +146,7 @@ define D304 {std kind 'FLOW-DELIVERY' units 'CFS'} !
 define D305 {std kind 'FLOW-DELIVERY' units 'CFS'} !SCWA Excess
 define D307 {std kind 'FLOW-DELIVERY' units 'CFS'} !DSA70 Depletion
 define demand_D308A {timeseries kind 'DEMAND' units 'TAF' convert 'CFS'}
-define D308A {lower 0. upper demand_D308A kind 'FLOW-DELIVERY' units 'CFS'} !
+define D308A {lower -1000. upper demand_D308A kind 'FLOW-DELIVERY' units 'CFS'} !
 define D308B {std kind 'FLOW-DELIVERY' units 'CFS'} !
 define D309a {std kind 'FLOW-DELIVERY' units 'CFS'} !FOLSOM SOUTH CANAL DSA70 demand
 define D309b {std kind 'FLOW-DELIVERY' units 'CFS'} !FOLSOM SOUTH CANAL Export to DSA59
