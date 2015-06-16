@@ -106,4 +106,37 @@ goal set_156_prj {r156_prj = rf_65*C154_prj - rf_65*gr64AWprj}    ! DSA 65 proje
 goal set_156_np  {r156_np = rf_65*C154_np - rf_65*gr64AWnp }      ! DSA 65 non project returns
 goal set_156     {r156 = r156_prj + r156_np }                     ! DSA 65 total returns
 
+!Return flow from Feather River Service Area rice decomp
 
+define R135C_DCMP_MAX {timeseries kind 'RETURN-FLOW' units 'taf'} ! This is the total return flow assuming 100% delivery of all decomp demand
+
+define decomp_del {
+	case February {
+		condition month==FEB
+		value D7C(-1)*cfs_taf(-1)+D7C(-2)*cfs_taf(-2)+D7C(-3)*cfs_taf(-3)+D7C(-4)*cfs_taf(-4)}
+	case other {
+		condition always
+		value 0.0	}
+}
+
+define decomp_deldv {alias decomp_del kind 'DECOMP-DELIVERY' units 'taf'}
+
+define decomp_dem {
+	case February {
+		condition month==FEB
+		value (dem_D7C_DCMP(-1)+dem_D7C_DCMP(-2)+dem_D7C_DCMP(-3)+dem_D7C_DCMP(-4))	}
+	case other{
+		condition always
+		value 1.0	}
+}
+
+define decomp_per {
+	case February {
+		condition month==FEB
+		value decomp_del/decomp_dem}
+	case other {
+		condition always
+		value 0.}
+}
+
+goal set_r135C_dcmp {r135c_dcmp = r135c_dcmp_max*decomp_per*taf_cfs} !set the return flow equal to the maximum return flow * the percent of max demand delivered
