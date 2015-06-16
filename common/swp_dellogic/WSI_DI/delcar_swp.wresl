@@ -110,6 +110,16 @@ define swp_perdel {value (swp_allocation_final-tableA_loss)/SWP_TableA}
 define swp_perdeldv {alias swp_perdel kind 'swp-delivery' units 'none'}
 define perdel_swp_int  {value 1.0}
 
+define swp_perdel_yuba {select yuba from swp_nod_alloc where wytype=wyt_SAC}
+define swp_perdel_napa {select napa from swp_nod_alloc where wytype=wyt_SAC}
+define swp_perdel_solano {select solano from swp_nod_alloc where wytype=wyt_SAC}
+define swp_perdel_butt {select butt from swp_butt_alloc given swp_sod_alloc=swp_perdel use linear}
+
+define swp_perdeldv_yuba {alias swp_perdel_yuba kind 'swp-delivery' units 'none'}
+define swp_perdeldv_napa {alias swp_perdel_napa kind 'swp-delivery' units 'none'}
+define swp_perdeldv_solano {alias swp_perdel_solano kind 'swp-delivery' units 'none'}
+define swp_perdeldv_butt {alias swp_perdel_butt kind 'swp-delivery' units 'none'}
+
 !Select demand profile based on percent allocation:
 /*define swp_demprofile {case p30  {condition swp_perdel < 0.40 value   30}
                        case p50  {condition swp_perdel < 0.65 value   50}

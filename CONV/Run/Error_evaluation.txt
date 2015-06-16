@@ -1,1 +1,4 @@
-(d:\drr\2015_drr_studies\dcr_2015_base_development\1_dcr2015_base_futurenocc_cq_aa_updates_120914\common\sanjoaquin\stanislaus\stan_fw_pulse.wresl:1)1922/4/30 cycle 3 (sjr_pulse), stanpulse in svar definition: aprpulse in the select statement is not a field name in Table stan_pulse_rpa
+(d:\drr2015\bdcp_alt_4\1_dcr2015_base_futurenocc_121214\conv\run\deliverylogic\delcar_swp.wresl:1)1921/10/31 cycle 6 (presetup), swp_perdel_yuba in svar definition: Table swp_nod_alloc could not be found.
+(d:\drr2015\bdcp_alt_4\1_dcr2015_base_futurenocc_121214\conv\run\deliverylogic\delcar_swp.wresl:1)1921/10/31 cycle 6 (presetup), swp_perdel_napa in svar definition: Table swp_nod_alloc could not be found.
+(d:\drr2015\bdcp_alt_4\1_dcr2015_base_futurenocc_121214\conv\run\deliverylogic\delcar_swp.wresl:1)1921/10/31 cycle 6 (presetup), swp_perdel_solano in svar definition: Table swp_nod_alloc could not be found.
+(d:\drr2015\bdcp_alt_4\1_dcr2015_base_futurenocc_121214\conv\run\deliverylogic\delcar_swp.wresl:1)1921/10/31 cycle 6 (presetup), swp_perdel_butt in svar definition: Table swp_butt_alloc could not be found.
