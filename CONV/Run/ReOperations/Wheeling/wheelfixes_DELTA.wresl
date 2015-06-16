@@ -255,7 +255,8 @@ goal fixSLin {
   rhs     d805[DELTA]
   lhs>rhs penalty 99999
   lhs<rhs penalty 99999
-}*/
+}
+*/
 goal fixterminals {
   lhs     c855
   rhs     c855[DELTA]

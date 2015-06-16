@@ -204,7 +204,7 @@ define S8level4 {timeseries kind 'STORAGE-LEVEL' units 'TAF'}
 define S8_4 {std kind 'STORAGE-ZONE' units 'TAF'}
 define S8level5 {timeseries kind 'STORAGE-LEVEL' units 'TAF'}
 define S8_5 {std kind 'STORAGE-ZONE' units 'TAF'}
-define S8level6 {value 966.832} !975
+define S8level6 {value 966.832}
 define S8_6 {std kind 'STORAGE-ZONE' units 'TAF'}
 define S8 {std kind 'STORAGE' units 'TAF'} !FOLSOM LAKE
 goal storage8 {S8=S8_1+S8_2+S8_3+S8_4+S8_5+S8_6}

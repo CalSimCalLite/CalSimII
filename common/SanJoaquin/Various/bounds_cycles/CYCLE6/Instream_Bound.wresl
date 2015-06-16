@@ -68,9 +68,6 @@ define Stan_C520FW {
         value       C520_mif[SJRBASE] }
         }
 
-define C520_mif_NP {alias C520_mif[SJRBASE] kind 'FLOW-MIN-INSTREAM' units 'cfs'}
-define C520_mif_P {alias C520_mif[SJR_PULSE] kind 'FLOW-MIN-INSTREAM' units 'cfs'}
-
 ! Stanislaus River F & W minimum flows requirement on reach C528
 define Stan_C528FW {
     case AprilHigh {

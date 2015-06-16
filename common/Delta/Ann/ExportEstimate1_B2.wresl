@@ -36,7 +36,7 @@ define EstSWPSodExp {
         value min(BanksMaxAllow, max(300.0, EstSWPSodDem + EstSWPSodRC), EstSWPMaxExp_RPA, max(300.,est_oro_release))
     }
 ! If there is another intake (Isolated Facility ND intake) do not constrain
-    case IF{
+    case withIF{
     condition always
         value min(BanksMaxAllow, max(300.0, EstSWPSodDem + EstSWPSodRC), max(300.,est_oro_release))
     }
@@ -122,7 +122,7 @@ define EstCVPSodExp {
         value min(CVPexportcap, max(TracyMinPumpLevel, EstCVPSodDem + EstCVPSodRC), EstCVPMaxExp_RPA )
     }
 ! If there is another intake (Isolated Facility ND intake) do not constrain
-    case IF{
+    case withIF{
     condition always
         value     min(CVPexportcap, max(TracyMinPumpLevel, EstCVPSodDem + EstCVPSodRC))
     }

@@ -80,13 +80,13 @@ goal boundN160in_0 {C160_0 > int_fweir * 62000.}
 goal boundN160in_1 {C160_1 < int_fweir * 9999999.}
 */
 
-!************BDCP Structure*************
-define D160_A {std kind 'FLOW-DELIVERY' units 'CFS'} !Fremont Weir Spills to Yolo Bypass
-define D160_B {std kind 'FLOW-DELIVERY' units 'CFS'} !Fremont Weir Spills to Yolo Bypass
+            !************BDCP Structure*************
+define D160_A {std kind 'FLOW-DELIVERY' units 'CFS'} !Freemont Weir Spills to Yolo Bypass
+define D160_B {std kind 'FLOW-DELIVERY' units 'CFS'} !Freemont Weir Spills to Yolo Bypass
 goal setd160split { D160 = D160_A + D160_B }
 
 ! Estimated Sacramento River flow at weir crest elevation is 56581,000 cfs
-define C160_0 {upper 54273. kind 'flow-channel' units 'cfs'}! segment from 0 to 54273
+define C160_0 {upper 54273. kind 'flow-channel' units 'cfs'}        ! segment from 0 to 54273
 define C160_1 {upper unbounded kind 'flow-channel' units 'cfs'}     ! segment above 54273
 goal sumN160in {C134 + C137 + C223 + R160 = C160_0 + C160_1 }
 
@@ -101,6 +101,7 @@ goal actfwflow {D160_A = fwslope0*C160_0 + fwslope1*C160_1 }
 goal boundN160in_0 {C160_0 > int_fweir * 54273.}
 goal boundN160in_1 {C160_1 < int_fweir * 9999999.}
   
+
             !************BDCP Structure*************   !M.Reginato 01/2009
 
 define SacFREzero {value 15530.1 }    !Max Flow at Sac River(at Verona C160) without spills over the new weir
@@ -109,8 +110,8 @@ define SacFREmax2 {value 31554.2 - 20316. } !Max Flow at sac river covered by th
 
 !Split of Sac flow
 define C160B_0 {upper SacFREzero kind 'flow-channel' units 'cfs'}   !Verona Flow up to notch crest
-define C160B_1 {upper SacFREmax1 kind 'flow-channel' units 'cfs'}!Verona Flow from notch to 1000. notch flow
-define C160B_15 {upper SacFREmax2 kind 'flow-channel' units 'cfs'}!Verona Flow from 1000. to 6000. notch flow
+define C160B_1 {upper SacFREmax1 kind 'flow-channel' units 'cfs'}   !Verona Flow from notch to 1000. notch flow
+define C160B_15 {upper SacFREmax2 kind 'flow-channel' units 'cfs'}  !Verona Flow from 1000. to 6000. notch flow
 define C160B_2 {upper unbounded kind 'flow-channel' units 'cfs'}    !Above Fremont weir notch
 
 define gate11flowmon {      !Flow for the gate at 11.5 ft elevation

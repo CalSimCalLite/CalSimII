@@ -1,6 +1,6 @@
 !Use previous month's Wilkin's Slough Flow
 define C_Tisdale {
-    case initial {
+    case initialmonth {
         condition wateryear == 1922 .and. month == OCT
         value 0. }
     case other {
@@ -8,7 +8,7 @@ define C_Tisdale {
         value C126(-1) }
         }
 define int_Wilk1 {
-    case initial {
+    case initialmonth {
         condition wateryear == 1922 .and. month == OCT
         value 0. }
     case LowC126 {
@@ -20,7 +20,7 @@ define int_Wilk1 {
         }
 
 define int_Wilk2 {
-    case initial {
+    case initialmonth {
         condition wateryear == 1922 .and. month == OCT
         value 0. }
     case HighC126 {
@@ -34,7 +34,7 @@ define int_Wilk2 {
 
 !Define Yolo Bypass releases
 define YB_rel {
-    case initial {
+    case initialyear {
         condition wateryear == 1922 .and. month <= 5
         value 0. }
     case FebMar {

@@ -253,11 +253,13 @@ goal Transfer_Cont_Stg2 {WTS_Yuba_Stg2 + WTS_DSA12_Stg2 + WTS_DSA15_Stg2 + WTS_D
                + WTS_Spill_Stg2
                        + WTS_Bal_Err_stg2}
 ! Spill
-goal zero_Spill_Stg2 {      !Spill to the system
-    lhs WTS_Spill_stg2
-    rhs 0.
+!goal zero_Spill_Stg2 {      !Spill to the system
+!    lhs WTS_Spill_stg2
+!    rhs 0.
 !    lhs>rhs penalty 1500}
-    lhs>rhs penalty 1900}
+!    lhs>rhs penalty 1900}
+
+goal zero_Spill_Stg2 {WTS_Spill_stg2 < (SP4_WTS_Stg2+SP6_WTS_Stg2)*taf_cfs}       !Spill to the system LGB
 
 ! ERROR
 goal zero_BalanceError2 {
